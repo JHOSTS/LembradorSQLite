@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lembrador.Views.TemperaturaPage"
+             class="">
+    <ContentPage.Resources>
+        <StyleSheetExtension Source="/Resources/Styles/styles.css"/>
+    </ContentPage.Resources>
+    
+    <VerticalStackLayout
+        BackgroundColor="CadetBlue">
+        <Label 
+            Text="Previsão do Tempo"
+            FontSize="Large"
+            FontAttributes="Bold"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <Label 
+            x:Name="txtPrevisao"
+            Text="Busque por uma cidade:"
+            SemanticProperties.HeadingLevel="Level2"
+            FontSize="15"
+            FontAttributes="Bold"
+            HorizontalOptions="CenterAndExpand"
+            TextColor="Black">
+        </Label>
+
+
+        <Editor
+                class="textbox"
+                x:Name="txtCidade"
+                Placeholder="Escreva uma cidade"
+                Keyboard="Text">
+        </Editor>
+    </VerticalStackLayout>
+</ContentPage>
