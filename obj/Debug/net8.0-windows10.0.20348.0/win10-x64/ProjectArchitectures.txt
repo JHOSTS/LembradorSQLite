@@ -1,0 +1,1 @@
+D:\Estudo\Lembrador\LembradorSQLite\Lembrador.csproj;x64

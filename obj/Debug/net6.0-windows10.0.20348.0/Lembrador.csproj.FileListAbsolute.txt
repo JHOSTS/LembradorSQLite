@@ -1,0 +1,6 @@
+D:\Estudo\Lembrador\LembradorSQLite\obj\Debug\net6.0-windows10.0.20348.0\Lembrador.csproj.AssemblyReference.cache
+D:\Estudo\Lembrador\LembradorSQLite\obj\Debug\net6.0-windows10.0.20348.0\Lembrador.GeneratedMSBuildEditorConfig.editorconfig
+D:\Estudo\Lembrador\LembradorSQLite\obj\Debug\net6.0-windows10.0.20348.0\Lembrador.AssemblyInfoInputs.cache
+D:\Estudo\Lembrador\LembradorSQLite\obj\Debug\net6.0-windows10.0.20348.0\Lembrador.AssemblyInfo.cs
+D:\Estudo\Lembrador\LembradorSQLite\obj\Debug\net6.0-windows10.0.20348.0\Lembrador.csproj.CoreCompileInputs.cache
+D:\Estudo\Lembrador\LembradorSQLite\obj\Debug\net6.0-windows10.0.20348.0\Lembrador.sourcelink.json

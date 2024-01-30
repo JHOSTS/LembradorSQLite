@@ -2,10 +2,15 @@
 
 namespace Lembrador.Model
 {
-    [Table("Lembrete")]
+    [Table("Lembretes")]
     public class Lembrete
     {
-        [Column("Lembretes")]
+        [Column("Lembrete")]
         public string TxtLembrete { get; set; }
+
+        public static explicit operator Lembrete(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

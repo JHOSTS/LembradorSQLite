@@ -1,6 +1,4 @@
 ﻿using Lembrador.Model;
-using MonkeyCache.LiteDB;
-using Newtonsoft.Json;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -25,6 +23,13 @@ namespace Lembrador.Services
             return _connection.Table<Lembrete>().ToListAsync();
         }
 
-
+        public async void AdicionaLembrete (Lembrete lembrete)
+        {
+            await _connection.InsertAsync(lembrete);
+        }
+        public async void DeletaLembrete(Lembrete lembrete)
+        {
+            await _connection.DeleteAsync(lembrete);
+        }
     }
 }

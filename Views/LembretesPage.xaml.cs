@@ -23,7 +23,6 @@ public partial class Lembrador : ContentPage
     {
         InitializeComponent();
 
-        lembradoresCache = _lembradorService.RetornaLembretes();
         lstlembradores.ItemsSource = lembradoresCache;
 
         if (lembradoresCache != null)
@@ -37,21 +36,21 @@ public partial class Lembrador : ContentPage
 
     private void btnAdicionarlembradorClicked(object sender, EventArgs e)
     {
-        var lembrador = txtlembrador.Text;
+        Lembrete lembrador = new Lembrete { TxtLembrete = txtlembrador.Text };
 
-        if (!String.IsNullOrEmpty(lembrador))
+        if (!String.IsNullOrEmpty(lembrador.TxtLembrete))
         {
-            lembrador = Environment.NewLine + DateTime.Now.ToString("dd-MM-yyy HH:mm") + ":  " + Environment.NewLine + lembrador;
-            lembradores.Add(lembrador);
+            lembrador.TxtLembrete = Environment.NewLine + DateTime.Now.ToString("dd-MM-yyy HH:mm") + ":  " + Environment.NewLine + lembrador.TxtLembrete;
+            lembradores.Add(lembrador.TxtLembrete);
             lstlembradores.ItemsSource = null;
             lstlembradores.ItemsSource = lembradores;
             txtlembrador.Text = "";
             framelembrador.IsVisible = true;
+
+            _lembradorService.AdicionaLembrete(lembrador);
         }
         else
             DisplayAlert("", "Adicione um lembrador!", "Fechar");
-
-        _lembradorService.SalvaCacheLembrador("lembrador", lembradores);
 
         btnExcluirlembrador.IsEnabled = framelembrador.IsVisible ? true : false;
     }
@@ -63,11 +62,13 @@ public partial class Lembrador : ContentPage
 
         if (lstlembradores.SelectedItems.Count >= 0)
         {
-            foreach (var itemSelecionado in lstlembradores.SelectedItems)
+            foreach (string itemSelecionado in lstlembradores.SelectedItems)
             {
                 lembradores.Remove(itemSelecionado.ToString());
                 lstlembradores.ItemsSource = null;
                 lstlembradores.ItemsSource = lembradores;
+                Lembrete lembreteSelecionado =  (Lembrete)itemSelecionado;
+                _lembradorService.DeletaLembrete(lembreteSelecionado);
             }
 
             if (lembradores.Count <= 0)
@@ -75,7 +76,6 @@ public partial class Lembrador : ContentPage
                 framelembrador.IsVisible = false; btnExcluirlembrador.IsEnabled = false;
             }
 
-            _lembradorService.SalvaCacheLembrador("lembrador", lembradores);
             lstlembradores.SelectedItem = null;
             DisplayAlert("", msgExclusao, "Fechar");
         }

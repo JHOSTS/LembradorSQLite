@@ -1,4 +1,7 @@
-﻿namespace Lembrador;
+﻿using Lembrador.Model;
+using Lembrador.Services;
+
+namespace Lembrador;
 
 public static class MauiProgram
 {
@@ -13,6 +16,8 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
+		builder.Services.AddSingleton<Lembrete>();
+		builder.Services.AddSingleton<LembradorService>();
 
 		return builder.Build();
 	}
